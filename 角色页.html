@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>角色管理</title>
         <link rel="stylesheet" href="asserts/common.css" />
+        <link rel="stylesheet" href="lib/jtree-table/css/jquery.treetable.css" />
+        <link rel="stylesheet" href="lib/jtree-table/css/jquery.treetable.theme.default.css" />
         <style>
             ul.role-list-ul  {
                 padding: 0;
@@ -151,12 +153,15 @@
                 
                             <input id="tab2" type="radio" name="tabs" />
                             <label for="tab2">自定义权限</label>
-                
-                            <input id="tab3" type="radio" name="tabs" />
-                            <label for="tab3">角色详情</label>
 
+                            <input id="tab3" type="radio" name="tabs" />
+                            <label for="tab3">接口权限（预留）</label>
+                
                             <input id="tab4" type="radio" name="tabs" />
-                            <label for="tab4">角色用户</label>
+                            <label for="tab4">角色详情</label>
+
+                            <input id="tab5" type="radio" name="tabs" />
+                            <label for="tab5">角色用户</label>
                 
                             <section id="content1">
                                 <div class="tab-content-ops">
@@ -205,8 +210,71 @@
                                     </tbody>
                                 </table>
                             </section> 
-                
+
                             <section id="content3">
+                                <table id="your_table_id" class="pure-table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" style="position: relative; top: 2px; margin-right: 5px;" />接口名称</th>
+                                            <th>path</th>
+                                            <th>http verbs</th>
+                                            <th>描述</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-tt-id="1">
+                                            <td><input type="checkbox" style="position: relative; top: 2px; margin-right: 5px" />智能柜管理</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                          </tr>
+                                          <tr data-tt-id="2" data-tt-parent-id="1">
+                                            <td><input type="checkbox" style="position: relative; top: 2px; margin-right: 5px" />添加智能柜</td>
+                                            <td>/caninet</td>
+                                            <td>PUT</td>
+                                            <td></td>
+                                          </tr>
+                                          <tr data-tt-id="4" data-tt-parent-id="1">
+                                            <td><input type="checkbox" style="position: relative; top: 2px; margin-right: 5px" />删除智能柜</td>
+                                            <td>/caninet/:id</td>
+                                            <td>DELETE</td>
+                                            <td></td>
+                                          </tr>
+                                          <tr data-tt-id="4" data-tt-parent-id="1">
+                                            <td><input type="checkbox" style="position: relative; top: 2px; margin-right: 5px" />编辑智能柜</td>
+                                            <td>/caninet/:id</td>
+                                            <td>POST</td>
+                                            <td></td>
+                                          </tr>
+                                          <tr data-tt-id="2">
+                                            <td><input type="checkbox" style="position: relative; top: 2px; margin-right: 5px" />店铺管理</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                          </tr>
+                                          <tr data-tt-id="20" data-tt-parent-id="2">
+                                            <td><input type="checkbox" style="position: relative; top: 2px; margin-right: 5px" />添加店铺</td>
+                                            <td>/store</td>
+                                            <td>PUT</td>
+                                            <td></td>
+                                          </tr>
+                                          <tr data-tt-id="21" data-tt-parent-id="2">
+                                            <td><input type="checkbox" style="position: relative; top: 2px; margin-right: 5px" />删除店铺</td>
+                                            <td>/store/:id</td>
+                                            <td>DELETE</td>
+                                            <td></td>
+                                          </tr>
+                                          <tr data-tt-id="22" data-tt-parent-id="2">
+                                            <td><input type="checkbox" style="position: relative; top: 2px; margin-right: 5px" />编辑店铺</td>
+                                            <td>/store/:id</td>
+                                            <td>POST</td>
+                                            <td></td>
+                                          </tr>
+                                    </tbody>
+                                  </table>
+                            </section>
+                
+                            <section id="content4">
                                 <div class="tab-content-ops">
                                     <a href="javascript:void(0)" class="btn btn-large" onclick="edit()">编辑角色</a>
                                     <a href="javascript:void(0)" class="btn btn-warn btn-large">禁用角色</a>
@@ -235,7 +303,7 @@
                                 </table>
                             </section>
 
-                            <section id="content4">
+                            <section id="content5">
                                 <div class="tab-content-ops">
                                     <a href="javascript:void(0)" class="btn btn-large btn-success">添加绑定</a>
                                     <a href="javascript:void(0)" class="btn btn-large btn-danger">批量解绑</a>
@@ -460,9 +528,16 @@
             </div>
         </div>
 
-        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
         <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script src="lib/jtree-table/jquery.treetable.js"></script>
         <script>
+
+            $(function() {
+
+                $("#your_table_id").treetable({ expandable: true, initialState: 'expanded' });
+
+            })
+
             function permissionSetting() {
                 var drawer = $('#drawer-container');
                 $('#drawer-container').animate(
