@@ -1,0 +1,371 @@
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 13px;
+}
+
+html,
+body {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+.pure-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+
+.pure-table caption {
+    color: #000;
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.pure-table td,
+.pure-table th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: 0.5em 1em;
+}
+
+.pure-table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.pure-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.pure-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.pure-table td {
+    background-color: transparent;
+}
+
+.pure-table-bordered td {
+    border-bottom: 1px solid #cbcbcb;
+}
+
+.pure-table-bordered tbody > tr:last-child > td {
+    border-bottom-width: 0;
+}
+
+.form-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+}
+
+.form-table td {
+    padding: 5px 5px;
+}
+
+.form-table td.form-label {
+    text-align: right;
+    font-weight: bold;
+}
+
+.form-table td.form-val {
+    padding-left: 0;
+    padding-right: 15px;
+}
+
+.label {
+    display: inline-block;
+    border: 1px;
+    padding: 3px 5px;
+    border-radius: 3px;
+    background-color: #ddd;
+}
+
+.label-success {
+    background-color: #19be6b;
+    color: #fff;
+}
+
+.label-error {
+    background-color: #ed4014;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+main.tab {
+    padding: 40px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+main.tab section {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+}
+
+main.tab > input {
+    display: none;
+}
+
+main.tab label {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #bbb;
+    border: 1px solid transparent;
+}
+
+main.tab label:before {
+    font-family: fontawesome;
+    font-weight: normal;
+    margin-right: 10px;
+}
+
+main.tab label[for*='1']:before {
+    content: '\f1cb';
+}
+
+main.tab label[for*='2']:before {
+    content: '\f17d';
+}
+
+main.tab label[for*='3']:before {
+    content: '\f16b';
+}
+
+main.tab label[for*='4']:before {
+    content: '\f1a9';
+}
+
+main.tab label:hover {
+    color: #888;
+    cursor: pointer;
+}
+
+main.tab input:checked + label {
+    color: #555;
+    border: 1px solid #ddd;
+    border-top: 2px solid #19be6b;
+    border-bottom: 1px solid #fff;
+}
+
+main.tab #tab1:checked ~ #content1,
+main.tab #tab2:checked ~ #content2,
+main.tab #tab3:checked ~ #content3,
+main.tab #tab4:checked ~ #content4,
+main.tab #tab5:checked ~ #content5 {
+    display: block;
+}
+
+@media screen and (max-width: 650px) {
+    main.tab label {
+        font-size: 0;
+    }
+
+    main.tab label:before {
+        margin: 0;
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 400px) {
+    main.tab label {
+        padding: 15px;
+    }
+}
+
+.btn {
+    display: inline-block;
+    border: 1px solid #ddd;
+    padding: 3px 8px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.15) inset;
+}
+
+.btn.btn-danger {
+    background-color: #ed4014;
+    color: #fff;
+    box-shadow: none;
+}
+
+.btn.btn-success {
+    background-color: #19be6b;
+    color: #fff;
+    box-shadow: none;
+}
+
+.btn.btn-warn {
+    background-color: orange;
+    color: #fff;
+    box-shadow: none;
+}
+
+.btn.btn-large {
+    padding: 8px 15px;
+}
+
+.drawer {
+    background-color: #fff;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    width: 650px;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    display: none;
+    overflow-y: scroll;
+}
+
+.drawer-active {
+    display: block;
+}
+
+.drawer > .drawer-head {
+    height: 30px;
+    border-bottom: 1px solid #eee;
+    padding: 10px 15px 10px 15px;
+}
+
+.drawer > .drawer-body {
+    padding: 15px;
+}
+
+.drawer .drawer-section {
+    width: 100%;
+}
+
+.drawer .drawer-section + .drawer-section {
+    margin-top: 15px;
+}
+
+.drawer .drawer-section .drawer-section-title {
+    display: inline-block;
+    padding: 5px 2px 5px 2px;
+    border-bottom: 2px solid #19be6b;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.drawer .drawer-section .drawer-section-body {
+    padding-top: 10px;
+}
+
+.product_thumb {
+    width: 120px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* 对话框的CSS样式 */
+.dialog {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.dialog-header {
+    padding: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+}
+.dialog-content {
+    padding: 16px;
+    color: #666;
+}
+.dialog-footer {
+    padding: 16px;
+    text-align: right;
+    border-top: 1px solid #ccc;
+}
+.dialog-footer button {
+    margin-left: 8px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+.dialog-footer button:hover {
+    background-color: #0069d9;
+}
+
+.dialog-hidden {
+    display: none;
+}
+
+select,
+input[type='text'] {
+    width: 100%;
+    padding: 6px 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type='text']:focus {
+    border: 1px solid #555;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.font-small {
+    font-size: 12px;
+}
+
+.divider-horizontal {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0,0,0,.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: "tnum","tnum";
+    border-top: 1px solid rgba(0,0,0,.06);
+    display: flex;
+    clear: both;
+    width: 100%;
+    min-width: 100%;
+    margin: 24px 0;
+}

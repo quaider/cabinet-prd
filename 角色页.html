@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>角色管理</title>
+        <link rel="stylesheet" href="asserts/common.css" />
+        <style>
+            ul.role-list-ul  {
+                padding: 0;
+                margin: 0;
+            }
+
+            ul.role-list-ul > li {
+                margin-left: 0;
+            }
+
+            ul.role-list-ul > li > a {
+                display: block;
+                padding: 10px 10px;
+                transition: 0.3s;
+                border-radius: 3px;
+            }
+
+            ul.role-list-ul > li > a.selected,
+            ul.role-list-ul > li > a:hover {
+                background-color: #19be6b;
+                color: white;
+            }
+
+            ul.role-list-ul > li > a span+span {
+                display: block;
+                padding-top: 5px;
+            }
+
+            ul.role-list-ul > li:last-child {
+                border-bottom: 2px solid #ddd;
+                margin-bottom: 10px;
+            }
+
+            .tab-content-ops .btn+.btn {
+                margin-left: 30px;
+            }
+            
+        </style>
+        </style>
+    </head>
+    <body>
+        <table style="width: 100%; height: 100%">
+            <tr>
+                <td
+                    style="width: 250px; height: 100%; background-color: #555"
+                    rowspan="2"
+                ></td>
+                <td
+                    style="
+                        height: 50px;
+                        background-color: #eee;
+                        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+                    "
+                ></td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top; padding: 20px 20px; display: flex;">
+                    <div style="width: 250px; height: 100%; padding: 20px 20px; background-color: #fff; box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);">
+                        <div style="margin-bottom: 15px; padding: auto 10px;">
+                            <span style="font-size: 14px;">全部角色(8)</span>
+                            <a href="#" class="btn" style="float: right;" onclick="edit()">添加角色</a>
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <input type="text" placeholder="角色搜索" style="padding: 10px 10px;" />
+                        </div>
+                        <div>
+                            <div style="font-weight: 14px; font-weight: bold; padding: 10px 8px;"><span>系统角色</span></div>
+                            <div class="role-list">
+                                <ul class="role-list-ul">
+                                    <li><a href="#">
+                                        <span>管理员</span>
+                                        <span class="font-small">SuperAdmin</span>
+                                    </a></li>
+                                </ul>
+                            </div>
+                            <div style="font-weight: 14px; font-weight: bold; padding: 10px 8px;"><span>账号角色</span></div>
+                            <div class="role-list">
+                                <ul class="role-list-ul">
+                                    <li><a href="#" class="selected">
+                                        <span>店长</span>
+                                        <span class="font-small">StoreManager</span>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>店员</span>
+                                        <span class="font-small">StoreSaler</span>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>上货员</span>
+                                        <span class="font-small">StorageOperator</span>
+                                    </a></li>
+                                </ul>
+                            </div>
+                            <div style="font-weight: 14px; font-weight: bold; padding: 10px 8px;"><span>自定义角色</span></div>
+                            <div class="role-list">
+                                <ul class="role-list-ul">
+                                    <li><a href="#">
+                                        <span>基础管理</span>
+                                        <span class="font-small">InfraAdmin</span>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>运营</span>
+                                        <span class="font-small">Ops</span>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>测试1</span>
+                                        <span class="font-small">Test1</span>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <span>测试2</span>
+                                        <span class="font-small">Test2</span>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 90%; margin-left: 20px; background-color: #fff; box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);">
+                        <main class="tab">
+                            <input id="tab1" type="radio" name="tabs" checked />
+                            <label for="tab1">菜单权限</label>
+                
+                            <input id="tab2" type="radio" name="tabs" />
+                            <label for="tab2">自定义权限</label>
+                
+                            <input id="tab3" type="radio" name="tabs" />
+                            <label for="tab3">角色详情</label>
+
+                            <input id="tab4" type="radio" name="tabs" />
+                            <label for="tab4">角色用户</label>
+                
+                            <section id="content1">
+                                <div class="tab-content-ops">
+                                    <a href="javascript:void(0)" class="btn btn-large">保存</a>
+                                </div>
+                                <div class="divider-horizontal" role="separator" style="margin-bottom: 32px;"></div>
+                                <img src="asserts/images/menu_tree.png" />
+                            </section>
+                
+                            <section id="content2">
+                                <div class="tab-content-ops">
+                                    <a href="javascript:void(0)" class="btn btn-large" onclick="edit()">保存</a>
+                                </div>
+                                <div class="divider-horizontal" role="separator" style="margin-bottom: 32px;"></div>
+                                <table class="pure-table pure-table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <input type="checkbox" />
+                                            </th>
+                                            <th>权限key</th>
+                                            <th>权限名</th>
+                                            <th>权限类型</th>
+                                            <th>权限说明</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" value="1" checked="checked" />
+                                            </td>
+                                            <td>page.view.order.reversal</td>
+                                            <td>订单详情页冲正</td>
+                                            <td>RW</td>
+                                            <td>是否在订单详情页展示冲正相关的字段项</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" value="2" />
+                                            </td>
+                                            <td>page.view.order.saleOrder</td>
+                                            <td>订单详情页销售单</td>
+                                            <td>RW</td>
+                                            <td>是否在订单详情页展示销售单相关的字段项</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section> 
+                
+                            <section id="content3">
+                                <div class="tab-content-ops">
+                                    <a href="javascript:void(0)" class="btn btn-large" onclick="edit()">编辑角色</a>
+                                    <a href="javascript:void(0)" class="btn btn-warn btn-large">禁用角色</a>
+                                    <a href="javascript:void(0)" class="btn btn-danger btn-large">删除角色</a>
+                                </div>
+                                <div class="divider-horizontal" role="separator" style="margin-bottom: 32px;"></div>
+                                <table class="form-table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="form-label">角色编号：</td>
+                                            <td class="form-val">SuperAdmin</td>
+                                            <td class="form-label">角色名称：</td>
+                                            <td class="form-val">超级管理员</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="form-label">角色描述：</td>
+                                            <td class="form-val" colspan="3">用于进行系统管理和初始化的超级管理员，拥有最高权限</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="form-label">最近修改时间：</td>
+                                            <td class="form-val">2023-08-31 13:21:19</td>
+                                            <td class="form-label">修改人：</td>
+                                            <td class="form-val">张三</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+
+                            <section id="content4">
+                                <div class="tab-content-ops">
+                                    <a href="javascript:void(0)" class="btn btn-large btn-success">添加绑定</a>
+                                    <a href="javascript:void(0)" class="btn btn-large btn-danger">批量解绑</a>
+                                </div>
+                                <div class="divider-horizontal" role="separator" style="margin-bottom: 32px;"></div>
+                                <table class="pure-table pure-table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <input type="checkbox" />
+                                            </th>
+                                            <th>用户姓名</th>
+                                            <th>手机号</th>
+                                            <th>绑定时间</th>
+                                            <th>绑定人</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" value="1" checked="checked" />
+                                            </td>
+                                            <td>张三</td>
+                                            <td>136****5678</td>
+                                            <td>2023-08-31 14:13:10</td>
+                                            <td>Admin</td>
+                                            <td>
+                                                <a href="#" class="btn btn-danger">解绑</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" value="1" checked="checked" />
+                                            </td>
+                                            <td>李四</td>
+                                            <td>138****2234</td>
+                                            <td>2023-09-01 13:10:56</td>
+                                            <td>Admin</td>
+                                            <td>
+                                                <a href="#" class="btn btn-danger">解绑</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </main>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div id="drawer-container" class="drawer">
+            <div class="drawer-head">
+                <a href="#" class="btn" id="close">关闭</a>
+            </div>
+            <div class="drawer-body">
+                <div class="drawer-section">
+                    <span class="drawer-section-title">商户信息</span>
+                    <div class="drawer-section-body">
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <td class="form-label">所属店铺：</td>
+                                    <td class="form-val" colspan="3">
+                                        浦东T2国际到达（进境）2E-3入境提货店
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">店铺id：</td>
+                                    <td class="form-val">124</td>
+                                    <td class="form-label">POS编号：</td>
+                                    <td class="form-val">
+                                        V30
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="drawer-section">
+                    <span class="drawer-section-title">订单信息</span>
+                    <div class="drawer-section-body">
+                        <table class="form-table" style="width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td class="form-label">货柜订单号：</td>
+                                    <td class="form-val">
+                                        BG230824152420600167
+                                    </td>
+                                    <td class="form-label">原单号：</td>
+                                    <td class="form-val">
+                                        Y99221013713870
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">商城单号：</td>
+                                    <td class="form-val">BAP542375429495857053</td>
+                                    <td class="form-label">所属货柜：</td>
+                                    <td class="form-val">Z001 - L112</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">订单总额：</td>
+                                    <td class="form-val">
+                                        <span style="color: red">¥500.0</span>
+                                    </td>
+                                    <td class="form-label">状态：</td>
+                                    <td class="form-val">
+                                        <span class="label label-success">已取件</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">取件时间：</td>
+                                    <td class="form-val">2023-08-31 18:21:10</td>
+                                    <td class="form-label">上架时间：</td>
+                                    <td class="form-val">2023-08-29 17:13:33</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <table class="pure-table" style="margin-top: 15px; width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>abiid</th>
+                                                    <th>商品名称</th>
+                                                    <th style="width: 105px;">商品图片</th>
+                                                    <th style="text-align: right;">原价</th>
+                                                    <th>数量</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="text-align: center;">156128</td>
+                                                    <td style="width: 150px;">七星 （薄荷晶选5毫克） 1X10</td>
+                                                    <td>
+                                                        <img class="product_thumb" src="asserts/images/0_600.jpg" />
+                                                    </td>
+                                                    <td style="text-align: right;">¥173.0</td>
+                                                    <td style="text-align: center;">1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: center;">69243</td>
+                                                    <td>Chung Hwa 中华（软） 1X10</td>
+                                                    <td>
+                                                        <img class="product_thumb" src="asserts/images/0_601.jpg" />
+                                                    </td>
+                                                    <td style="text-align: right;">¥550.0</td>
+                                                    <td style="text-align: center;">1</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="drawer-section">
+                    <span class="drawer-section-title">客户信息</span>
+                    <div class="drawer-section-body">
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <td class="form-label" style="width: 70px;">姓名：</td>
+                                    <td class="form-val">张三</td>
+                                    <td class="form-label" style="width: 60px;">年龄：</td>
+                                    <td class="form-val">25</td>
+                                    <td class="form-label">联系电话：</td>
+                                    <td class="form-val">138****3344  <a href="#" class="btn">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">证件类型：</td>
+                                    <td class="form-val">2012版中国电子护照</td>
+                                    <td class="form-label">国家：</td>
+                                    <td class="form-val">中国</td>
+                                    <td class="form-label">证件号：</td>
+                                    <td class="form-val">C43163372 <a href="#" class="btn">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">航班号：</td>
+                                    <td class="form-val">MU385</td>
+                                    <td class="form-label">座位号：</td>
+                                    <td class="form-val">13J</td>
+                                    <td class="form-label"></td>
+                                    <td class="form-val"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog dialog-hidden">
+            <div class="dialog-header">角色编辑</div>
+            <div class="dialog-content">
+                <table class="form-table" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td class="form-label">角色编码：</td>
+                            <td class="form-val">
+                                <input type="text" disabled="disabled" value="Storage" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label">角色名称：</td>
+                            <td class="form-val">
+                                <input type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label">角色描述：</td>
+                            <td class="form-val">
+                                <input type="text" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="dialog-footer">
+                <a class="btn btn-large" onclick="closeDialog()">关闭</a>
+                <a class="btn btn-success btn-large">确认</a>
+            </div>
+        </div>
+
+        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script>
+            function permissionSetting() {
+                var drawer = $('#drawer-container');
+                $('#drawer-container').animate(
+                    {
+                        width: 'show',
+                    },
+                    300,
+                    function () {
+                        drawer.addClass('drawer-active');
+                    }
+                );
+
+                return false;
+            }
+
+            $('#drawer-container #close').on('click', function () {
+                var drawer = $('#drawer-container');
+                $('#drawer-container').animate(
+                    {
+                        width: 'hide',
+                    },
+                    300,
+                    function () {
+                        drawer.removeClass('drawer-active');
+                    }
+                );
+            });
+
+            function edit() {
+                $('.dialog').toggleClass('dialog-hidden')
+            }
+
+            function closeDialog() {
+                $('.dialog').addClass('dialog-hidden')
+            }
+        </script>
+    </body>
+</html>

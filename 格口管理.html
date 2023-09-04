@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>格口管理</title>
+        <link rel="stylesheet" href="asserts/common.css" />
+        <style>
+            .bag_sku_img {
+                display: inline-block;
+                width: 50px;
+                max-height: 40px;
+                overflow: hidden;
+                border-radius: 5px;
+            }
+            .bag_sku_img img {
+                width: 100%;
+            }
+            .bag_sku_title {
+                margin-left: 8px;
+                display: inline-block;
+            }
+            .bag_sku_title span {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <table style="width: 100%; height: 100%">
+            <tr>
+                <td
+                    style="width: 250px; height: 100%; background-color: #555"
+                    rowspan="2"
+                ></td>
+                <td
+                    style="
+                        height: 50px;
+                        background-color: #eee;
+                        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+                    "
+                ></td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top; padding: 20px 40px">
+                    <div style="margin-bottom: 15px; margin-top: 5px;">
+                        筛选项：副柜 | 可用状态 | 运行状态 | 福袋类别 <br />
+                        运行状态：忙碌->客户正在下单或取件
+                    </div>
+                    <table class="pure-table pure-table-bordered">
+                        <thead>
+                            <tr>
+                                <th>格口号</th>
+                                <th>所属副柜</th>
+                                <th>启用状态</th>
+                                <th>运行状态</th>
+                                <th>福袋类别</th>
+                                <th style="width: 500px;">福袋</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>L001</td>
+                                <td>L1副柜</td>
+                                <td><span class="label label-success">已启用</span></td>
+                                <td><span class="label label-danger">空置</span></td>                                 
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <a href="#" class="btn" onclick="showDetail()">详情</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>L002</td>
+                                <td>L1副柜</td>
+                                <td><span class="label label-success">已启用</span></td>
+                                <td><span class="label label-danger">忙碌</span></td>
+                                <td>
+                                    <span class="label">售卖</span>
+                                </td>
+                                <td>
+                                    <div style="display: flex; margin-bottom: 5px;">
+                                        <div class="bag_sku_img">
+                                            <img  src="asserts/images/0_600.jpg"></img>
+                                        </div>
+                                        <div class="bag_sku_title">
+                                            <span>好时 -HERSHEY'S-Brookside蓝莓黑巧克力-198g --198g</span>
+                                            <span style="color: red;"><b>价格：</b>50.00</span>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex;">
+                                        <div class="bag_sku_img">
+                                            <img  src="asserts/images/0_600.jpg"></img>
+                                        </div>
+                                        <div class="bag_sku_title">
+                                            <span>好时 -HERSHEY'S-Brookside蓝莓黑巧克力-198g --198g</span>
+                                            <span style="color: red;"><b>价格：</b>50.00</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn" onclick="showDetail()">详情</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>L002</td>
+                                <td>L1副柜</td>
+                                <td><span class="label label-success">已启用</span></td>
+                                <td><span class="label label-danger">已上货</span></td>
+                                <td>
+                                    <span class="label">自提</span>
+                                </td>
+                                <td>
+                                    <div>订单号：Y009234133 | 客户：张三 | 手机号：136****1111</div>
+                                    <div style="display: flex; margin-bottom: 5px;">
+                                        <div class="bag_sku_img">
+                                            <img  src="asserts/images/0_600.jpg"></img>
+                                        </div>
+                                        <div class="bag_sku_title">
+                                            <span>好时 -HERSHEY'S-Brookside蓝莓黑巧克力--198g --198g</span>
+                                            <span style="color: red;"><b>单价：</b>50.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>数量：</b>3</span>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex;">
+                                        <div class="bag_sku_img">
+                                            <img  src="asserts/images/0_600.jpg"></img>
+                                        </div>
+                                        <div class="bag_sku_title">
+                                            <span>好时 -HERSHEY'S-Brookside蓝莓黑巧克力--198g --198g</span>
+                                            <span style="color: red;"><b>单价：</b>50.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>数量：</b>1</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn" onclick="showDetail()">详情</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <div id="drawer-container" class="drawer drawer-active" style="width: 830px;">
+            <div class="drawer-head">
+                <a href="#" class="btn" id="close">关闭</a>
+            </div>
+            <div class="drawer-body">
+                <div class="drawer-section">
+                    <span class="drawer-section-title">基础信息</span>
+                    <div class="drawer-section-body">
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <td class="form-label">格口号：</td>
+                                    <td class="form-val">
+                                        L001
+                                    </td>
+                                    <td class="form-label">所属副柜：</td>
+                                    <td class="form-val">
+                                        L1副柜
+                                    </td>
+                                    <td class="form-label">智能柜编号：</td>
+                                    <td class="form-val">
+                                        Z001
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">福袋类别：</td>
+                                    <td class="form-val">
+                                        <span class="label">售卖</span>
+                                    </td>
+                                    <td class="form-label">启用状态：</td>
+                                    <td class="form-val">
+                                        <span class="label label-success">已启用</span>
+                                    </td>
+                                    <td class="form-label">运行状态：</td>
+                                    <td class="form-val">
+                                        <span class="label">已上货</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">锁控规则：</td>
+                                    <td class="form-val" colspan="5">
+                                        3,0,0,5 <a href="#" class="btn btn-danger">编辑</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                <div class="drawer-section">
+                    <span class="drawer-section-title">福袋详情</span>
+                    <div class="drawer-section-body">
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <td class="form-label">上架时间：</td>
+                                    <td class="form-val">
+                                        2023-09-03 13:25:55
+                                    </td>
+                                    <td class="form-label">上架人员：</td>
+                                    <td class="form-val">
+                                        赵飞燕
+                                    </td>
+                                    <td class="form-val"><a href="#" class="btn btn-danger">下架</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style="margin-top: 5px;">
+                            <table class="pure-table" style="margin-top: 15px;">
+                                <thead>
+                                    <tr>
+                                        <th>abiid</th>
+                                        <th>日上码</th>
+                                        <th>商品名称</th>
+                                        <th>商品图片</th>
+                                        <th style="text-align: right;">原价</th>
+                                        <th style="text-align: right;">售价</th>
+                                        <th>类目</th>
+                                        <th>品牌</th>
+                                        <th>数量</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">156128</td>
+                                        <td style="text-align: center;">113101</td>
+                                        <td style="width: 130px;">七星 （薄荷晶选5毫克） 1X10</td>
+                                        <td>
+                                            <img class="product_thumb" src="asserts/images/0_600.jpg" />
+                                        </td>
+                                        <td style="text-align: right;">¥173.0</td>
+                                        <td style="text-align: right; color: red">¥160.0</td>
+                                        <td>进口卷烟</td>
+                                        <td>七星</td>
+                                        <td style="text-align: center;">1</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">69243</td>
+                                        <td style="text-align: center;">115206</td>
+                                        <td>Chung Hwa 中华（软） 1X10</td>
+                                        <td>
+                                            <img class="product_thumb" src="asserts/images/0_601.jpg" />
+                                        </td>
+                                        <td style="text-align: right;">¥550.0</td>
+                                        <td style="text-align: right; color: red;">¥500.0</td>
+                                        <td>国产卷烟</td>
+                                        <td>中华</td>
+                                        <td style="text-align: center;">1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="drawer-section">
+                    <span class="drawer-section-title">运维管理</span>
+                    <div class="drawer-section-body">
+                        <div style="margin-top: 5px;">
+                            <a href="#" class="btn btn-large">一键上架</a>
+                            <a href="#" class="btn btn-danger btn-large">禁用</a>
+                            <a href="#" class="btn btn-danger btn-large">清空格口</a>
+                            <a href="#" class="btn btn-danger btn-large">开门不清空格口</a>
+                            <a href="#" class="btn btn-danger btn-large">开门及清空格口</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog dialog-hidden">
+            <div class="dialog-header">添加销售人员</div>
+            <div class="dialog-content">
+                <table class="form-table" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td class="form-label">选择人员：</td>
+                            <td class="form-val">
+                                <div style="border: 1px solid #333; padding: 5px 10px;">
+                                    <span class="label" style="margin-right: 5px;">张三</span>
+                                    <span class="label">李四</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label">销售关系：</td>
+                            <td class="form-val">
+                                <select>
+                                    <option>门店销售</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="dialog-footer">
+                <a class="btn btn-large" onclick="closeDialog()">关闭</a>
+                <a class="btn btn-success btn-large">确认</a>
+            </div>
+        </div>
+
+        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script>
+            function showDetail() {
+                var drawer = $('#drawer-container');
+                $('#drawer-container').animate(
+                    {
+                        width: 'show',
+                    },
+                    300,
+                    function () {
+                        drawer.addClass('drawer-active');
+                    }
+                );
+
+                return false;
+            }
+
+            $('#drawer-container #close').on('click', function () {
+                var drawer = $('#drawer-container');
+                $('#drawer-container').animate(
+                    {
+                        width: 'hide',
+                    },
+                    300,
+                    function () {
+                        drawer.removeClass('drawer-active');
+                    }
+                );
+            });
+
+            function addSaler() {
+                $('.dialog').toggleClass('dialog-hidden')
+            }
+
+            function closeDialog() {
+                $('.dialog').addClass('dialog-hidden')
+            }
+        </script>
+    </body>
+</html>

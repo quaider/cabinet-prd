@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>用户管理</title>
+        <link rel="stylesheet" href="asserts/common.css" />
+    </head>
+    <body>
+        <table style="width: 100%; height: 100%">
+            <tr>
+                <td
+                    style="width: 250px; height: 100%; background-color: #555"
+                    rowspan="2"
+                ></td>
+                <td
+                    style="
+                        height: 50px;
+                        background-color: #eee;
+                        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+                    "
+                ></td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top; padding: 20px 40px">
+                    <table class="pure-table pure-table-bordered">
+                        <thead>
+                            <tr>
+                                <th>用户名</th>
+                                <th>姓名</th>
+                                <th>手机号</th>
+                                <th>工号</th>
+                                <th>状态</th>
+                                <th>所属角色</th>
+                                <th>岗位</th>
+                                <th style="text-align: center">创建时间</th>
+                                <th style="text-align: center">更新时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>admin</td>
+                                <td>admin</td>
+                                <td>188****0001</td>
+                                <td>-</td>
+                                <td>
+                                    <span class="label label-success">已启用</span>
+                                </td>
+                                <td><span class="label">超级管理员</span></td>
+                                <td>-</td>
+                                <td>
+                                    张三 <br />
+                                    2023-08-18 16:06:02
+                                </td>
+                                <td>李四 <br />2023-08-18 16:06:02</td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>zhangsan</td>
+                                <td>张三</td>
+                                <td>188****0002</td>
+                                <td>900326</td>
+                                <td>
+                                    <span class="label label-success">已启用</span>
+                                </td>
+                                <td><span class="label">销售员</span></td>
+                                <td>门店销售</td>
+                                <td>
+                                    王五 <br />
+                                    2023-08-18 16:06:02
+                                </td>
+                                <td>李四 <br />2023-08-18 16:06:02</td>
+                                <td>
+                                    <a href="#" class="btn" onclick="edit()">编辑</a>
+                                    <a href="#" class="btn btn-danger">禁用</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>zhangsan</td>
+                                <td>张三丰</td>
+                                <td>188****0003</td>
+                                <td>900327</td>
+                                <td>
+                                    <span class="label">已禁用</span>
+                                </td>
+                                <td>
+                                    <span class="label">销售员</span>
+                                    <span class="label">店员</span>
+                                    <span class="label" style="margin-top: 3px;">测试角色</span> <br />
+                                    <span class="label" style="margin-top: 3px;">测试角色2</span>
+                                </td>
+                                <td>临时工</td>
+                                <td>
+                                    王五 <br />
+                                    2023-08-18 16:06:02
+                                </td>
+                                <td>李一一 <br />2023-08-18 16:06:02</td>
+                                <td>
+                                    <a href="#" class="btn" onclick="edit()">编辑</a>
+                                    <a href="#" class="btn btn-success">启用</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <div class="dialog dialog-hidden">
+            <div class="dialog-header">用户编辑</div>
+            <div class="dialog-content">
+                <table class="form-table" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td class="form-label">用户名：</td>
+                            <td class="form-val">
+                                <input type="text" disabled="disabled" value="zhangsan" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label">姓名：</td>
+                            <td class="form-val">
+                                <input type="text" value="张三" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label">手机号：</td>
+                            <td class="form-val">
+                                <input type="text" value="18812345678"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label">工号：</td>
+                            <td class="form-val">
+                                <input type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label">岗位：</td>
+                            <td class="form-val">
+                                <input type="text" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="dialog-footer">
+                <a class="btn btn-large" onclick="closeDialog()">关闭</a>
+                <a class="btn btn-success btn-large">确认</a>
+            </div>
+        </div>
+
+        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script>
+            function edit() {
+                $('.dialog').toggleClass('dialog-hidden')
+            }
+
+            function closeDialog() {
+                $('.dialog').addClass('dialog-hidden')
+            }
+        </script>
+    </body>
+</html>

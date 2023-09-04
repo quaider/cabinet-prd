@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>售卖订单</title>
+        <link rel="stylesheet" href="asserts/common.css" />
+    </head>
+    <body>
+        <table style="width: 100%; height: 100%">
+            <tr>
+                <td
+                    style="width: 250px; height: 100%; background-color: #555"
+                    rowspan="2"
+                ></td>
+                <td
+                    style="
+                        height: 50px;
+                        background-color: #eee;
+                        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+                    "
+                ></td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top; padding: 20px 40px">
+                    <table class="pure-table pure-table-bordered">
+                        <thead>
+                            <tr>
+                                <th>订单号</th>
+                                <th>所属店铺</th>
+                                <th>智能柜编号</th>
+                                <th>格口号</th>
+                                <th>客户</th>
+                                <th>证件号</th>
+                                <th>航班号</th>
+                                <th>订单总额</th>
+                                <th style="text-align: center">下单时间</th>
+                                <th style="text-align: center">支付时间</th>
+                                <th>订单状态</th>
+                                <th>是否开票</th>
+                                <th>是否推单</th>
+                                <th>是否冲正</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>BG230824152420600164</td>
+                                <td>
+                                    124-V30<br />浦东T2国际到达（进境）2E-3入境提货店
+                                </td>
+                                <td>Z001</td>
+                                <td>R102</td>
+                                <td>张三<br />188****0000</td>
+                                <td>C43163372</td>
+                                <td>MU385<br />13J</td>
+                                <td style="color: red">
+                                    原价：¥170.00<br />售卖价：¥152.00
+                                </td>
+                                <td>2023-08-18 16:06:02</td>
+                                <td>2023-08-18 16:07:11</td>
+                                <td><span class="label">待支付</span></td>
+                                <td style="text-align: center">
+                                    <span class="label">否</span>
+                                </td>
+                                <td style="text-align: center">
+                                    <span class="label">否</span>
+                                </td>
+                                <td style="text-align: center">
+                                    <span class="label">否</span>
+                                </td>
+                                <td>
+                                    <a
+                                        href="#"
+                                        class="btn"
+                                        onclick="showDetail()"
+                                        >详情</a
+                                    >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>BG230824152420600165</td>
+                                <td>
+                                    124-V30<br />浦东T2国际到达（进境）2E-3入境提货店
+                                </td>
+                                <td>Z001</td>
+                                <td>R103</td>
+                                <td>李四<br />188****1234</td>
+                                <td>C43163372</td>
+                                <td>MU385<br />13J</td>
+                                <td style="color: red">
+                                    原价：¥1000.00<br />
+                                    售卖价：¥950.00
+                                </td>
+                                <td>2023-08-30 13:01:44</td>
+                                <td>2023-08-30 13:03:11</td>
+                                <td>
+                                    <span class="label label-success">已支付</span>
+                                </td>
+                                <td style="text-align: center">
+                                    <span class="label label-success">是</span>
+                                </td>
+                                <td style="text-align: center">
+                                    <span class="label label-success">是</span>
+                                </td>
+                                <td style="text-align: center">
+                                    <span class="label">否</span>
+                                </td>
+                                <td>
+                                    <a
+                                        href="#"
+                                        class="btn"
+                                        onclick="showDetail()"
+                                        >详情</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>BG230824152420600167</td>
+                                <td>
+                                    124-V30<br />浦东T2国际到达（进境）2E-3入境提货店
+                                </td>
+                                <td>Z002</td>
+                                <td>L112</td>
+                                <td>李四<br />188****2312</td>
+                                <td>C43163372</td>
+                                <td>MU222<br />017J</td>
+                                <td style="color: red">
+                                    原价：¥500.00<br />
+                                    售卖价：¥475.00
+                                </td>
+                                <td>2023-08-31 13:00:21</td>
+                                <td>2023-08-31 13:02:35</td>
+                                <td>
+                                    <span class="label label-error">已取消</span>
+                                </td>
+                                <td style="text-align: center">
+                                    <span class="label label-success">是</span>
+                                </td>
+                                <td style="text-align: center">
+                                    <span class="label label-success">是</span>
+                                </td>
+                                <td style="text-align: center">
+                                    <span class="label label-success">是</span>
+                                </td>
+                                <td>
+                                    <a
+                                        href="#"
+                                        class="btn"
+                                        onclick="showDetail()"
+                                        >详情</a
+                                    >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>BG230824152420600168</td>
+                                <td>
+                                    124-V30<br />浦东T2国际到达（进境）2E-3入境提货店
+                                </td>
+                                <td>Z002</td>
+                                <td>L112</td>
+                                <td>李四<br />188****2312</td>
+                                <td>C43163372</td>
+                                <td>MU222<br />017J</td>
+                                <td style="color: red">
+                                    原价：¥500.00<br />
+                                    售卖价：¥475.00
+                                </td>
+                                <td>2023-08-31 13:00:21</td>
+                                <td>2023-08-31 13:02:35</td>
+                                <td>
+                                    <span class="label label-success">已完成</span>
+                                </td>
+                                <td style="text-align: center">
+                                    <span class="label label-success">是</span>
+                                </td>
+                                <td style="text-align: center">
+                                    <span class="label label-success">是</span>
+                                </td>
+                                <td style="text-align: center">
+                                    <span class="label">否</span>
+                                </td>
+                                <td>
+                                    <a
+                                        href="#"
+                                        class="btn"
+                                        onclick="showDetail()"
+                                        >详情</a
+                                    >
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <div id="drawer-container" class="drawer drawer-active" style="width: 700px">
+            <div class="drawer-head">
+                <a href="#" class="btn" id="close">关闭</a>
+            </div>
+            <div class="drawer-body">
+                <div class="drawer-section">
+                    <span class="drawer-section-title">商户信息</span>
+                    <div class="drawer-section-body">
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <td class="form-label">所属店铺：</td>
+                                    <td class="form-val" colspan="3">
+                                        浦东T2国际到达（进境）2E-3入境提货店
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">店铺id：</td>
+                                    <td class="form-val">124</td>
+                                    <td class="form-label">POS编号：</td>
+                                    <td class="form-val">
+                                        V30
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="drawer-section">
+                    <span class="drawer-section-title">订单信息</span>
+                    <div class="drawer-section-body">
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <td class="form-label">订单号：</td>
+                                    <td class="form-val">
+                                        BG230824152420600167
+                                    </td>
+                                    <td class="form-label">下单时间：</td>
+                                    <td class="form-val">
+                                        2023-08-18 16:06:02
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">订单总额：</td>
+                                    <td class="form-val">
+                                        <span style="color: red">¥500.0/¥475.0 （95折）</span>
+                                    </td>
+                                    <td class="form-label">状态：</td>
+                                    <td class="form-val">
+                                        <span class="label label-error">已取消</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">货柜编号：</td>
+                                    <td class="form-val">Z001</td>
+                                    <td class="form-label">格口号：</td>
+                                    <td class="form-val">L112</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="form-val" colspan="3">
+                                        <a href="#" class="btn btn-danger" id="cancel_order">取消订单</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <table class="pure-table" style="margin-top: 15px;">
+                                            <thead>
+                                                <tr>
+                                                    <th>abiid</th>
+                                                    <th>日上码</th>
+                                                    <th>商品名称</th>
+                                                    <th>商品图片</th>
+                                                    <th style="text-align: right;">原价</th>
+                                                    <th>类目</th>
+                                                    <th>品牌</th>
+                                                    <th>数量</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="text-align: center;">156128</td>
+                                                    <td style="text-align: center;">113101</td>
+                                                    <td style="width: 150px;">七星 （薄荷晶选5毫克） 1X10</td>
+                                                    <td>
+                                                        <img class="product_thumb" src="asserts/images/0_600.jpg" />
+                                                    </td>
+                                                    <td style="text-align: right;">¥173.0</td>
+                                                    <td>进口卷烟</td>
+                                                    <td>七星</td>
+                                                    <td style="text-align: center;">1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: center;">69243</td>
+                                                    <td style="text-align: center;">115206</td>
+                                                    <td>Chung Hwa 中华（软） 1X10</td>
+                                                    <td>
+                                                        <img class="product_thumb" src="asserts/images/0_601.jpg" />
+                                                    </td>
+                                                    <td style="text-align: right;">¥550.0</td>
+                                                    <td>国产卷烟</td>
+                                                    <td>中华</td>
+                                                    <td style="text-align: center;">1</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="drawer-section">
+                    <span class="drawer-section-title">客户信息</span>
+                    <div class="drawer-section-body">
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <td class="form-label" style="width: 70px;">姓名：</td>
+                                    <td class="form-val">张三</td>
+                                    <td class="form-label" style="width: 60px;">年龄：</td>
+                                    <td class="form-val">25</td>
+                                    <td class="form-label">联系电话：</td>
+                                    <td class="form-val">138****3344  <a href="#" class="btn">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">证件类型：</td>
+                                    <td class="form-val">2012版中国电子护照</td>
+                                    <td class="form-label">国家：</td>
+                                    <td class="form-val">中国</td>
+                                    <td class="form-label">证件号：</td>
+                                    <td class="form-val">C43163372 <a href="#" class="btn">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">航班号：</td>
+                                    <td class="form-val">MU385</td>
+                                    <td class="form-label">座位号：</td>
+                                    <td class="form-val">13J</td>
+                                    <td class="form-label"></td>
+                                    <td class="form-val"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="drawer-section">
+                    <span class="drawer-section-title">支付信息</span>
+                    <div class="drawer-section-body">
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <td class="form-label">支付单号：</td>
+                                    <td class="form-val">PG230818141354483317</td>
+                                    <td class="form-label">支付时间：</td>
+                                    <td class="form-val">2023-08-18 14:14:08</td>
+                                    <td class="form-label"></td>
+                                    <td class="form-val"></td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">支付方式：</td>
+                                    <td class="form-val">银联二维码</td>
+                                    <td class="form-label">支付金额：</td>
+                                    <td class="form-val">¥475.0</td>
+                                    <td class="form-label"></td>
+                                    <td class="form-val"></td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">商户名称：</td>
+                                    <td class="form-val">微信旅购</td>
+                                    <td class="form-label">商户号：</td>
+                                    <td class="form-val">1609323654</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label">外部交易号：</td>
+                                    <td class="form-val" colspan="3">999820230818141354519518</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="drawer-section">
+                    <span class="drawer-section-title">开票信息</span>
+                    <div class="drawer-section-body">
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <td class="form-label" style="width: 70px;">姓名：</td>
+                                    <td class="form-val">张三</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label" style="width: 70px;">公司：</td>
+                                    <td class="form-val">日上免税行（上海）有限公司</td>
+                                    <td class="form-label">税号：</td>
+                                    <td class="form-val" colspan="3">91310000607406795H</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label" style="width: 70px;">发票编号：</td>
+                                    <td class="form-val"><a href="#" style="text-decoration: underline;">031002200611</a></td>
+                                    <td class="form-label">发票序号：</td>
+                                    <td class="form-val">68257701</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-label" style="width: 70px;">开票时间：</td>
+                                    <td class="form-val" colspan="3">2023-08-31 13:20</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="drawer-section">
+                    <span class="drawer-section-title">销售单信息</span>
+                    <div class="drawer-section-body">
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <td class="form-label" style="width: 70px;">状态：</td>
+                                    <td class="form-val"><span class="label label-success">已推送</span></td>
+                                    <td class="form-label" style="width: 70px;">推送时间：</td>
+                                    <td class="form-val">2023-08-31 13:38:12</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-val" colspan="4">
+                                        <a href="#" class="btn btn-danger">重试推送</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="drawer-section">
+                    <span class="drawer-section-title">冲正信息</span>
+                    <div class="drawer-section-body">
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <td class="form-label" style="width: 70px;">冲正单号：</td>
+                                    <td class="form-val" colspan="3">BG230810104704011500</td>
+                                    <td class="form-label" style="width: 70px;">状态：</td>
+                                    <td class="form-val"><span class="label label-error">已冲正</span></td>
+                                    <td class="form-label" style="width: 70px;">冲正时间：</td>
+                                    <td class="form-val">2023-08-31 13:38:12</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-val" colspan="4">
+                                        <a href="#" class="btn btn-danger">重试冲正</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog dialog-hidden">
+            <div class="dialog-header">取消订单</div>
+            <div class="dialog-content">
+                <table class="form-table" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td class="form-label">支付金额：</td>
+                            <td class="form-val">
+                                <input type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label">取消原因：</td>
+                            <td class="form-val">
+                                <input type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-label" style="color: red;" colspan="2">
+                                取消订单会留下操作记录，请谨慎操作
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="dialog-footer">
+                <a class="btn btn-large" onclick="closeDialog()">关闭</a>
+                <a class="btn btn-success btn-large">确认</a>
+            </div>
+        </div>
+
+        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script>
+            function showDetail() {
+                var drawer = $('#drawer-container');
+                $('#drawer-container').animate(
+                    {
+                        width: 'show',
+                    },
+                    300,
+                    function () {
+                        drawer.addClass('drawer-active');
+                    }
+                );
+
+                return false;
+            }
+
+            $('#drawer-container #close').on('click', function () {
+                var drawer = $('#drawer-container');
+                $('#drawer-container').animate(
+                    {
+                        width: 'hide',
+                    },
+                    300,
+                    function () {
+                        drawer.removeClass('drawer-active');
+                    }
+                );
+            });
+
+            $('#cancel_order').on('click', function() {
+                $('.dialog').toggleClass('dialog-hidden')
+            })
+
+            function closeDialog() {
+                $('.dialog').addClass('dialog-hidden')
+            }
+        </script>
+    </body>
+</html>
