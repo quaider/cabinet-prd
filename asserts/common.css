@@ -200,6 +200,18 @@ main.tab #tab5:checked ~ #content5 {
     }
 }
 
+.menu {
+    margin-left: 0;
+    padding: 0;
+}
+.menu > li > a {
+    font-size: 14px;
+    color: #fff;
+    display: block;
+    padding: 15px 20px 15px 40px;
+    background-color: #333;
+}
+
 .btn {
     display: inline-block;
     border: 1px solid #ddd;
